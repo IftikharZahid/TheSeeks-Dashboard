@@ -62,7 +62,8 @@ export default function LoginPage() {
                         right: 0;
                         bottom: 0;
                         z-index: 99999;
-                        background: #2e3160;
+                        background: #f4f7fe; /* Professional white/light background */
+                        color-scheme: light; /* Force light mode UI elements */
                         display: flex;
                         flex-direction: column;
                         overflow-y: auto;
@@ -80,7 +81,7 @@ export default function LoginPage() {
                     .login-card {
                         background: #ffffff;
                         border-radius: 12px;
-                        box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+                        box-shadow: 0 20px 50px rgba(0,0,0,0.06); /* Softer shadow for light background */
                         width: 100%;
                         max-width: 1240px;
                         min-height: 640px;
@@ -121,6 +122,13 @@ export default function LoginPage() {
                         display: flex;
                         flex-direction: column;
                         justify-content: center;
+                    }
+                    .red-line {
+                        width: 112px;
+                        height: 4px;
+                        background: #ef4444;
+                        margin-top: 20px;
+                        border-radius: 2px;
                     }
                     .powered-by {
                         position: absolute;
@@ -191,7 +199,7 @@ export default function LoginPage() {
                     .login-footer {
                         text-align: center;
                         font-size: 11px;
-                        color: rgba(255,255,255,0.4);
+                        color: rgba(46, 49, 96, 0.5); /* Updated for light background */
                         padding: 16px;
                         margin-top: auto;
                     }
@@ -292,6 +300,7 @@ export default function LoginPage() {
                             margin-top: 16px;
                             margin-bottom: 0px;
                         }
+                        .red-line { margin-top: 10px; }
                         .brand-text { font-size: 22px; white-space: nowrap; }
                         .main-heading { font-size: 16px; font-weight: 600; }
                         .powered-by {
@@ -326,6 +335,7 @@ export default function LoginPage() {
                         .main-heading { font-size: 13px; margin-top: 4px; font-weight: 600; line-height: 1.2; white-space: nowrap; }
                         .sub-heading { font-size: 9px; letter-spacing: 1px; }
                         .brand-container { gap: 12px; margin-bottom: 4px; }
+                        .red-line { margin-top: 4px; }
                         
                         /* Form Elements Scale Down */
                         .admin-portal-title { font-size: 20px; margin-bottom: 18px; }
@@ -383,7 +393,7 @@ export default function LoginPage() {
                         <div className="main-heading">
                             Education Management Solution
                         </div>
-                        <div style={{ width: 112, height: 4, background: '#ef4444', marginTop: 20, borderRadius: 2 }} />
+                        <div className="red-line" />
                     </div>
                 </div>
 
