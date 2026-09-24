@@ -284,8 +284,8 @@ export default function LoginPage() {
                             margin-top: 16px;
                             margin-bottom: 0px;
                         }
-                        .brand-text { font-size: 22px; }
-                        .main-heading { font-size: 24px; }
+                        .brand-text { font-size: 28px; }
+                        .main-heading { font-size: 16px; font-weight: 600; }
                         .powered-by {
                             position: relative;
                             bottom: auto;
@@ -312,11 +312,11 @@ export default function LoginPage() {
                         .login-form-card { padding: 20px 14px; border-radius: 12px; }
                         
                         /* Typography & Branding Scale Down */
-                        .main-heading { font-size: 18px; margin-top: 4px; }
-                        .brand-text { font-size: 16px; }
-                        .sub-heading { font-size: 10px; letter-spacing: 0.5px; }
-                        .brand-logo { width: 44px; height: 44px; }
-                        .brand-container { gap: 8px; }
+                        .brand-text { font-size: 24px; }
+                        .brand-logo { width: 56px; height: 56px; }
+                        .main-heading { font-size: 14px; margin-top: 4px; font-weight: 600; line-height: 1.2; }
+                        .sub-heading { font-size: 9px; letter-spacing: 1px; }
+                        .brand-container { gap: 12px; margin-bottom: 4px; }
                         
                         /* Form Elements Scale Down */
                         .admin-portal-title { font-size: 20px; margin-bottom: 18px; }
