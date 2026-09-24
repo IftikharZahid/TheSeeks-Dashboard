@@ -52,13 +52,27 @@ export default function LoginPage() {
     };
 
     return (
-        <div style={{
-            minHeight: '100vh', background: '#2e3160',
-            display: 'flex', flexDirection: 'column',
-            padding: '24px 16px', position: 'relative', overflowY: 'auto', overflowX: 'hidden',
-        }}>
+        <div className="login-container">
             <style>
                 {`
+                    .login-container {
+                        min-height: 100vh;
+                        min-height: 100dvh;
+                        background: #2e3160;
+                        display: flex;
+                        flex-direction: column;
+                        overflow-y: auto;
+                        overflow-x: hidden;
+                    }
+                    .login-card-wrapper {
+                        flex: 1;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 24px 16px;
+                        width: 100%;
+                        box-sizing: border-box;
+                    }
                     .login-card {
                         background: #ffffff;
                         border-radius: 12px;
@@ -70,7 +84,7 @@ export default function LoginPage() {
                         flex-direction: row;
                         overflow: hidden;
                         position: relative;
-                        margin: auto;
+                        box-sizing: border-box;
                     }
                     .login-left {
                         flex: 1;
@@ -78,6 +92,7 @@ export default function LoginPage() {
                         display: flex;
                         flex-direction: column;
                         position: relative;
+                        box-sizing: border-box;
                     }
                     .login-right {
                         width: 540px;
@@ -86,6 +101,7 @@ export default function LoginPage() {
                         flex-direction: column;
                         justify-content: center;
                         z-index: 10;
+                        box-sizing: border-box;
                     }
                     .login-form-card {
                         background: #f8fafc;
@@ -93,6 +109,8 @@ export default function LoginPage() {
                         border-radius: 16px;
                         border: 1px solid #e2e8f0;
                         box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+                        box-sizing: border-box;
+                        width: 100%;
                     }
                     .center-typo {
                         flex: 1;
@@ -127,6 +145,13 @@ export default function LoginPage() {
                         margin-top: 8px;
                         letter-spacing: -0.5px;
                     }
+                    .login-footer {
+                        text-align: center;
+                        font-size: 11px;
+                        color: rgba(255,255,255,0.4);
+                        padding: 16px;
+                        margin-top: auto;
+                    }
                     
                     @media (max-width: 1024px) {
                         .login-left { padding: 60px 40px; }
@@ -135,32 +160,37 @@ export default function LoginPage() {
                     }
                     
                     @media (max-width: 768px) {
+                        .login-card-wrapper {
+                            align-items: flex-start;
+                            padding: 16px 12px;
+                        }
                         .login-card { 
                             flex-direction: column; 
                             min-height: auto;
+                            border-radius: 16px;
                         }
                         .login-left { 
-                            padding: 30px 20px 10px; 
+                            padding: 32px 20px 16px; 
                             align-items: center;
                             text-align: center;
                         }
                         .center-typo {
                             align-items: center;
-                            margin-top: 24px;
+                            margin-top: 16px;
                             margin-bottom: 0px;
                         }
-                        .brand-text { font-size: 20px; }
+                        .brand-text { font-size: 22px; }
                         .main-heading { font-size: 24px; }
                         .powered-by {
                             position: relative;
                             bottom: auto;
                             width: 100%;
-                            padding: 15px 0 20px;
+                            padding: 16px 0 24px;
                             order: 3;
                         }
                         .login-right { 
                             width: 100%; 
-                            padding: 10px 20px 0; 
+                            padding: 0 16px 16px; 
                             order: 2;
                         }
                         .login-form-card {
@@ -168,11 +198,19 @@ export default function LoginPage() {
                         }
                         .decorations { display: none; }
                     }
+
+                    @media (max-width: 480px) {
+                        .login-card-wrapper { padding: 12px 8px; }
+                        .login-left { padding: 24px 16px 12px; }
+                        .login-right { padding: 0 12px 16px; }
+                        .login-form-card { padding: 24px 16px; }
+                    }
                 `}
             </style>
 
-            {/* The white container card */}
-            <div className="login-card">
+            <div className="login-card-wrapper">
+                {/* The white container card */}
+                <div className="login-card">
                 {/* Loader Overlay */}
                 {loading && (
                     <div style={{
@@ -334,8 +372,9 @@ export default function LoginPage() {
                     Powered by <a href="https://iftikharzahid.me" target="_blank" rel="noopener noreferrer" style={{ color: '#ef4444', textDecoration: 'none' }}>ZahidCodes</a>
                 </div>
             </div>
+            </div>
             
-            <div style={{ position: 'absolute', bottom: 20, left: 0, width: '100%', textAlign: 'center', fontSize: 11, color: 'rgba(255,255,255,0.4)' }}>
+            <div className="login-footer">
                 © {new Date().getFullYear()} The Seeks Academy, Fort Abbas. All rights reserved.
             </div>
         </div>
