@@ -1268,6 +1268,7 @@ td {
   .dash-hero p { font-size: 11px !important; }
   
   /* Settings Page Compact Styling */
+  .settings-col { min-width: 0 !important; }
   .settings-header { padding: 12px 16px !important; }
   .settings-scroll-container { padding: 16px !important; }
   .settings-grid { gap: 16px !important; }
@@ -1278,6 +1279,7 @@ td {
 }
 
 /* Base Settings Page Styles */
+.settings-col { min-width: 0; }
 .settings-header { padding: 16px 32px; }
 .settings-scroll-container { flex: 1; overflow-y: scroll; padding: 24px 32px; }
 .settings-grid { gap: 24px; }

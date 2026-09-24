@@ -508,7 +508,7 @@ function SettingRow({
       >
         {icon}
       </div>
-      <div style={{ flex: 1 }}>
+      <div style={{ flex: 1, minWidth: 0 }}>
         <div
           style={{
             fontSize: 12,
@@ -2024,7 +2024,7 @@ WhatsApp:   https://wa.link/330h0s
           style={{ maxWidth: 1400, margin: "0 auto" }}
         >
           {/* ── LEFT COLUMN ─────────────────────────────────────── */}
-          <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+          <div className="settings-col" style={{ display: "flex", flexDirection: "column", gap: 24, minWidth: 0 }}>
             {/* Account Module */}
             <section>
               <SectionLabel label="Account & Security" />
@@ -2476,7 +2476,7 @@ WhatsApp:   https://wa.link/330h0s
           </div>
 
           {/* ── RIGHT COLUMN ────────────────────────────────────── */}
-          <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+          <div className="settings-col" style={{ display: "flex", flexDirection: "column", gap: 24, minWidth: 0 }}>
             {/* App Preferences */}
             <section>
               <SectionLabel label="App Layout & Customization" />
