@@ -188,6 +188,76 @@ export default function LoginPage() {
                         margin-top: auto;
                     }
                     
+                    /* ── Form Element Classes ── */
+                    .admin-portal-title {
+                        font-size: 26px;
+                        font-weight: 800;
+                        color: #2e3160;
+                        margin-bottom: 28px;
+                        text-align: center;
+                    }
+                    .login-form {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+                    }
+                    .form-label {
+                        display: block;
+                        font-size: 14px;
+                        font-weight: 700;
+                        color: #475569;
+                        margin-bottom: 8px;
+                    }
+                    .form-input {
+                        width: 100%;
+                        height: 52px;
+                        padding-left: 42px;
+                        background: #ffffff;
+                        border: 1px solid #cbd5e1;
+                        border-radius: 10px;
+                        font-size: 15px;
+                        color: #1e293b;
+                        outline: none;
+                        transition: border-color 0.2s;
+                        box-sizing: border-box;
+                    }
+                    .form-input:focus {
+                        border-color: #2e3160;
+                    }
+                    .form-input-pass {
+                        padding-right: 44px;
+                    }
+                    .form-icon {
+                        position: absolute;
+                        left: 14px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        font-size: 16px;
+                        pointer-events: none;
+                        color: #94a3b8;
+                    }
+                    .pass-toggle-btn {
+                        position: absolute;
+                        right: 10px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background: none;
+                        border: none;
+                        cursor: pointer;
+                        font-size: 16px;
+                        color: #94a3b8;
+                        padding: 6px;
+                    }
+                    .forgot-pass-btn {
+                        background: none;
+                        border: none;
+                        color: #3071c7;
+                        font-size: 13px;
+                        font-weight: 600;
+                        cursor: pointer;
+                        padding: 0;
+                    }
+
                     @media (max-width: 1024px) {
                         .login-left { padding: 60px 40px; }
                         .login-right { width: 450px; padding: 40px; }
@@ -235,16 +305,31 @@ export default function LoginPage() {
                     }
 
                     @media (max-width: 480px) {
-                        .login-card-wrapper { padding: 12px 8px; }
-                        .login-left { padding: 24px 16px 12px; }
-                        .login-right { padding: 0 12px 16px; }
-                        .login-form-card { padding: 24px 16px; }
-                        .main-heading { font-size: 20px; }
-                        .brand-text { font-size: 18px; }
-                        .sub-heading { font-size: 11px; letter-spacing: 1px; }
-                        .brand-logo { width: 56px; height: 56px; }
-                        .brand-container { gap: 12px; }
-                        .login-btn { height: 46px; font-size: 15px; margin-top: 6px; }
+                        .login-card-wrapper { padding: 10px 8px; }
+                        .login-card { border-radius: 12px; }
+                        .login-left { padding: 20px 12px 10px; }
+                        .login-right { padding: 0 10px 12px; }
+                        .login-form-card { padding: 20px 14px; border-radius: 12px; }
+                        
+                        /* Typography & Branding Scale Down */
+                        .main-heading { font-size: 18px; margin-top: 4px; }
+                        .brand-text { font-size: 16px; }
+                        .sub-heading { font-size: 10px; letter-spacing: 0.5px; }
+                        .brand-logo { width: 44px; height: 44px; }
+                        .brand-container { gap: 8px; }
+                        
+                        /* Form Elements Scale Down */
+                        .admin-portal-title { font-size: 20px; margin-bottom: 18px; }
+                        .login-form { gap: 14px; }
+                        .form-label { font-size: 12px; margin-bottom: 6px; }
+                        .form-input { height: 44px; font-size: 14px; padding-left: 36px; border-radius: 8px; }
+                        .form-input-pass { padding-right: 38px; }
+                        .form-icon { font-size: 14px; left: 12px; }
+                        .pass-toggle-btn { font-size: 14px; padding: 4px; right: 8px; }
+                        .login-btn { height: 44px; font-size: 14px; border-radius: 8px; margin-top: 4px; }
+                        .forgot-pass-btn { font-size: 12px; }
+                        
+                        .login-footer { padding: 10px; font-size: 10px; }
                     }
                 `}
             </style>
@@ -286,15 +371,15 @@ export default function LoginPage() {
                 {/* Right Side (Form) */}
                 <div className="login-right">
                     <div className="login-form-card">
-                        <div style={{ fontSize: 26, fontWeight: 800, color: '#2e3160', marginBottom: 28, textAlign: 'center' }}>Admin Portal</div>
+                        <div className="admin-portal-title">Admin Portal</div>
                         
-                        <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+                        <form className="login-form" onSubmit={handleLogin}>
                             
                             {/* Email */}
                             <div>
-                                <label style={{ display: 'block', fontSize: 14, fontWeight: 700, color: '#475569', marginBottom: 8 }}>Email Address</label>
+                                <label className="form-label">Email Address</label>
                                 <div style={{ position: 'relative' }}>
-                                    <span style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)', fontSize: 16, pointerEvents: 'none', color: '#94a3b8' }}>✉️</span>
+                                    <span className="form-icon">✉️</span>
                                     <input
                                         id="login-email"
                                         type="email"
@@ -303,23 +388,16 @@ export default function LoginPage() {
                                         onChange={e => setEmail(e.target.value)}
                                         autoComplete="email"
                                         disabled={loading}
-                                        style={{ 
-                                            width: '100%', height: 52, paddingLeft: 42, paddingRight: 14,
-                                            background: '#ffffff', border: '1px solid #cbd5e1', borderRadius: 10,
-                                            fontSize: 15, color: '#1e293b', outline: 'none', transition: 'border-color 0.2s',
-                                            boxSizing: 'border-box'
-                                        }}
-                                        onFocus={(e) => e.target.style.borderColor = '#2e3160'}
-                                        onBlur={(e) => e.target.style.borderColor = '#cbd5e1'}
+                                        className="form-input"
                                     />
                                 </div>
                             </div>
 
                             {/* Password */}
                             <div>
-                                <label style={{ display: 'block', fontSize: 14, fontWeight: 700, color: '#475569', marginBottom: 8 }}>Password</label>
+                                <label className="form-label">Password</label>
                                 <div style={{ position: 'relative' }}>
-                                    <span style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)', fontSize: 16, pointerEvents: 'none', color: '#94a3b8' }}>🔒</span>
+                                    <span className="form-icon">🔒</span>
                                     <input
                                         id="login-password"
                                         type={showPass ? 'text' : 'password'}
@@ -328,23 +406,13 @@ export default function LoginPage() {
                                         onChange={e => setPassword(e.target.value)}
                                         autoComplete="current-password"
                                         disabled={loading}
-                                        style={{ 
-                                            width: '100%', height: 52, paddingLeft: 42, paddingRight: 44,
-                                            background: '#ffffff', border: '1px solid #cbd5e1', borderRadius: 10,
-                                            fontSize: 15, color: '#1e293b', outline: 'none', transition: 'border-color 0.2s',
-                                            boxSizing: 'border-box'
-                                        }}
-                                        onFocus={(e) => e.target.style.borderColor = '#2e3160'}
-                                        onBlur={(e) => e.target.style.borderColor = '#cbd5e1'}
+                                        className="form-input form-input-pass"
                                     />
                                     <button
                                         type="button"
                                         onClick={() => setShowPass(p => !p)}
                                         tabIndex={-1}
-                                        style={{ 
-                                            position: 'absolute', right: 10, top: '50%', transform: 'translateY(-50%)', 
-                                            background: 'none', border: 'none', cursor: 'pointer', fontSize: 16, color: '#94a3b8', padding: 6 
-                                        }}
+                                        className="pass-toggle-btn"
                                     >
                                         {showPass ? '👁️' : '👁️‍🗨️'}
                                     </button>
@@ -353,12 +421,12 @@ export default function LoginPage() {
 
                             {/* Error / Success Messages */}
                             {error && (
-                                <div style={{ background: '#fef2f2', border: '1px solid #fecaca', color: '#ef4444', borderRadius: 10, padding: '10px 14px', fontSize: 14, display: 'flex', alignItems: 'center', gap: 8 }}>
+                                <div style={{ background: '#fef2f2', border: '1px solid #fecaca', color: '#ef4444', borderRadius: 10, padding: '10px 14px', fontSize: 13, display: 'flex', alignItems: 'center', gap: 8 }}>
                                     <span>⚠️</span> {error}
                                 </div>
                             )}
                             {resetSent && (
-                                <div style={{ background: '#ecfdf5', border: '1px solid #a7f3d0', color: '#10b981', borderRadius: 10, padding: '10px 14px', fontSize: 14, display: 'flex', alignItems: 'center', gap: 8 }}>
+                                <div style={{ background: '#ecfdf5', border: '1px solid #a7f3d0', color: '#10b981', borderRadius: 10, padding: '10px 14px', fontSize: 13, display: 'flex', alignItems: 'center', gap: 8 }}>
                                     <span>✅</span> Reset link sent to {email}.
                                 </div>
                             )}
@@ -370,7 +438,7 @@ export default function LoginPage() {
                                 disabled={loading}
                                 className="login-btn"
                                 style={{
-                                    background: loading ? '#64748b' : '#3071c7', // Professional button blue
+                                    background: loading ? '#64748b' : '#3071c7',
                                     cursor: loading ? 'not-allowed' : 'pointer'
                                 }}
                             >
@@ -382,7 +450,7 @@ export default function LoginPage() {
                             <button
                                 onClick={handleReset}
                                 disabled={loading}
-                                style={{ background: 'none', border: 'none', color: '#3071c7', fontSize: 12, fontWeight: 600, cursor: 'pointer', padding: 0 }}
+                                className="forgot-pass-btn"
                             >
                                 Forgot password?
                             </button>
