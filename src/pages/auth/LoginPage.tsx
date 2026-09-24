@@ -364,9 +364,14 @@ export default function LoginPage() {
                     {/* Logo Top Left */}
                     <div className="brand-container">
                         <img src="/logo.png" alt="Logo" className="brand-logo" />
-                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-                            <div className="brand-text">THE SEEKS ACADEMY</div>
-                            <div className="brand-location">Fort Abbas</div>
+                        <div style={{ display: 'flex', alignItems: 'flex-start' }}>
+                            <div className="brand-text">THE SEEKS&nbsp;</div>
+                            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                <div className="brand-text">ACADEMY</div>
+                                <div className="brand-location" style={{ textAlignLast: 'justify', letterSpacing: 0, width: '100%' }}>
+                                    FORT ABBAS
+                                </div>
+                            </div>
                         </div>
                     </div>
 
