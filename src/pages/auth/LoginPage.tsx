@@ -284,7 +284,7 @@ export default function LoginPage() {
                             margin-top: 16px;
                             margin-bottom: 0px;
                         }
-                        .brand-text { font-size: 28px; }
+                        .brand-text { font-size: 22px; white-space: nowrap; }
                         .main-heading { font-size: 16px; font-weight: 600; }
                         .powered-by {
                             position: relative;
@@ -312,9 +312,9 @@ export default function LoginPage() {
                         .login-form-card { padding: 20px 14px; border-radius: 12px; }
                         
                         /* Typography & Branding Scale Down */
-                        .brand-text { font-size: 24px; }
-                        .brand-logo { width: 56px; height: 56px; }
-                        .main-heading { font-size: 14px; margin-top: 4px; font-weight: 600; line-height: 1.2; }
+                        .brand-text { font-size: 17px; white-space: nowrap; }
+                        .brand-logo { width: 48px; height: 48px; }
+                        .main-heading { font-size: 13px; margin-top: 4px; font-weight: 600; line-height: 1.2; white-space: nowrap; }
                         .sub-heading { font-size: 9px; letter-spacing: 1px; }
                         .brand-container { gap: 12px; margin-bottom: 4px; }
                         
