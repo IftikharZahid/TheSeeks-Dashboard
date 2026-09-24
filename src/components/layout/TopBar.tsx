@@ -325,7 +325,7 @@ export default function TopBar({
   // ── Shared dropdown card style — fully theme-aware ─────────────────────
   const dropdownCard: React.CSSProperties = {
     position: 'absolute', top: 'calc(100% + 12px)', right: 0,
-    width: 340, background: 'var(--card)', borderRadius: 16,
+    width: 'min(340px, calc(100vw - 24px))', background: 'var(--card)', borderRadius: 16,
     boxShadow: 'var(--shadow), 0 20px 60px rgba(0,0,0,0.18)',
     border: '1px solid var(--border)',
     zIndex: 9999, overflow: 'hidden',
@@ -551,14 +551,14 @@ export default function TopBar({
                   })() : '';
                   return (
                     <div key={i} onClick={() => { setMsgOpen(false); navigate(`/chat?group=${msg.groupId}`); }} style={{
-                      display: 'flex', alignItems: 'center', gap: 10,
-                      padding: '10px 16px', borderBottom: '1px solid var(--border)',
+                      display: 'flex', alignItems: 'center', gap: 8,
+                      padding: '8px 12px', borderBottom: '1px solid var(--border)',
                       cursor: 'pointer'
                     }}>
                       <div style={{
-                        width: 30, height: 30, borderRadius: 8, background: avatarBg,
+                        width: 26, height: 26, borderRadius: 6, background: avatarBg,
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        color: '#fff', fontSize: 13, fontWeight: 700, flexShrink: 0,
+                        color: '#fff', fontSize: 11, fontWeight: 700, flexShrink: 0,
                       }}>
                         {(msg.sender || 'U').charAt(0).toUpperCase()}
                       </div>
@@ -613,7 +613,7 @@ export default function TopBar({
                   const icon = n._type === 'complaint' ? '🚨' : n._type === 'suggestion' ? '💡' : (n.category === 'Exam' ? '📄' : n.category === 'Holiday' ? '📅' : n.category === 'Event' ? '⭐' : n.category === 'Fee' ? '💳' : n.category === 'Academic' ? '🏫' : '🔔');
                   return (
                     <div key={n.id || i} onClick={() => { setBellOpen(false); navigate(navPath); }} style={{
-                      display: 'flex', gap: 10, padding: '10px 16px',
+                      display: 'flex', gap: 8, padding: '8px 12px',
                       borderBottom: '1px solid var(--border)', alignItems: 'center',
                       cursor: 'pointer',
                       transition: 'background 0.2s',
@@ -622,9 +622,9 @@ export default function TopBar({
                     onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                     >
                       <div style={{
-                        width: 30, height: 30, borderRadius: 8,
+                        width: 26, height: 26, borderRadius: 6,
                         background: `${color}20`, display: 'flex',
-                        alignItems: 'center', justifyContent: 'center', fontSize: 14, flexShrink: 0,
+                        alignItems: 'center', justifyContent: 'center', fontSize: 12, flexShrink: 0,
                       }}>
                         {icon}
                       </div>

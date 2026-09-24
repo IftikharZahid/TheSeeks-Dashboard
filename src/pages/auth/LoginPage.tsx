@@ -149,6 +149,37 @@ export default function LoginPage() {
                         margin-top: 8px;
                         letter-spacing: -0.5px;
                     }
+                    .sub-heading {
+                        color: #ef4444;
+                        font-size: 13px;
+                        letter-spacing: 2px;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                    }
+                    .brand-container {
+                        display: flex;
+                        align-items: center;
+                        gap: 16px;
+                    }
+                    .brand-logo {
+                        width: 72px;
+                        height: 72px;
+                        object-fit: contain;
+                    }
+                    .login-btn {
+                        width: 100%;
+                        height: 54px;
+                        margin-top: 10px;
+                        color: #ffffff;
+                        border: none;
+                        border-radius: 10px;
+                        font-size: 18px;
+                        font-weight: 700;
+                        transition: background 0.2s;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
                     .login-footer {
                         text-align: center;
                         font-size: 11px;
@@ -210,6 +241,10 @@ export default function LoginPage() {
                         .login-form-card { padding: 24px 16px; }
                         .main-heading { font-size: 20px; }
                         .brand-text { font-size: 18px; }
+                        .sub-heading { font-size: 11px; letter-spacing: 1px; }
+                        .brand-logo { width: 56px; height: 56px; }
+                        .brand-container { gap: 12px; }
+                        .login-btn { height: 46px; font-size: 15px; margin-top: 6px; }
                     }
                 `}
             </style>
@@ -233,14 +268,14 @@ export default function LoginPage() {
                 {/* Left Side (Branding & Copy) */}
                 <div className="login-left">
                     {/* Logo Top Left */}
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-                        <img src="/logo.png" alt="Logo" style={{ width: 72, height: 72, objectFit: 'contain' }} />
+                    <div className="brand-container">
+                        <img src="/logo.png" alt="Logo" className="brand-logo" />
                         <div className="brand-text">THE SEEKS<br/>ACADEMY</div>
                     </div>
 
                     {/* Center Typography */}
                     <div className="center-typo">
-                        <div style={{ color: '#ef4444', fontSize: 13, letterSpacing: 2, fontWeight: 700, textTransform: 'uppercase' }}>A Comprehensive</div>
+                        <div className="sub-heading">A Comprehensive</div>
                         <div className="main-heading">
                             Education Management<br/>Solution
                         </div>
@@ -333,12 +368,10 @@ export default function LoginPage() {
                                 id="login-submit"
                                 type="submit"
                                 disabled={loading}
+                                className="login-btn"
                                 style={{
-                                    width: '100%', height: 54, marginTop: 10,
                                     background: loading ? '#64748b' : '#3071c7', // Professional button blue
-                                    color: '#ffffff', border: 'none', borderRadius: 10,
-                                    fontSize: 18, fontWeight: 700, cursor: loading ? 'not-allowed' : 'pointer',
-                                    transition: 'background 0.2s', display: 'flex', alignItems: 'center', justifyContent: 'center'
+                                    cursor: loading ? 'not-allowed' : 'pointer'
                                 }}
                             >
                                 {loading ? 'Signing in...' : 'Sign In'}

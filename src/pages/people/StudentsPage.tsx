@@ -1064,7 +1064,7 @@ export default function StudentsPage() {
     };
 
     return (
-        <div className="page" style={{ padding: '0px', height: '100%', display: 'flex', flexDirection: 'column' }}>
+        <div className="page" style={{ padding: '0px', display: 'flex', flexDirection: 'column' }}>
             {/* Header */}
             <div className="page-header" style={{ padding: '10px 20px 5px 20px', background: 'var(--card)', zIndex: 10 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
@@ -1160,9 +1160,9 @@ export default function StudentsPage() {
             {loading ? (
                 <div className="loading" style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><div className="spinner" /> Loading...</div>
             ) : (
-                <div style={{ flex: 1, overflow: 'hidden', padding: '10px 16px', display: 'flex', flexDirection: 'column' }}>
-                    <div className="table-wrap" style={{ flex: 1, display: 'flex', flexDirection: 'column', border: '1px solid var(--border)', background: 'var(--card)', borderRadius: 8, overflow: 'hidden', margin: 0 }}>
-                        <div style={{ overflow: 'auto', flex: 1 }}>
+                <div style={{ flex: 1, padding: '10px 16px', display: 'flex', flexDirection: 'column' }}>
+                    <div className="table-wrap" style={{ flex: 1, display: 'flex', flexDirection: 'column', border: '1px solid var(--border)', background: 'var(--card)', borderRadius: 8, margin: 0 }}>
+                        <div style={{ overflowX: 'auto', flex: 1 }}>
                             <table style={{ background: 'var(--card)', minWidth: '100%', borderCollapse: 'collapse', whiteSpace: 'nowrap' }}>
                                 <thead style={{ position: 'sticky', top: 0, zIndex: 10 }}>
                                     <tr style={{ background: 'linear-gradient(90deg, #1e3a8a 0%, #1d4ed8 100%)', color: '#ffffff', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.05em' }}>

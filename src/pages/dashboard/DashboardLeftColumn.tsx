@@ -41,54 +41,56 @@ export default function DashboardLeftColumn({ globalSearchQuery, filteredRecent 
                     </div>
                 </div>
                 
-                <table className="dash-table" style={{ width: '100%', borderCollapse: 'collapse' }}>
-                    <thead>
-                        <tr>
-                            <th>Roll No</th>
-                            <th>Student Name</th>
-                            <th>Father Name</th>
-                            <th>Class</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {filteredRecent.slice(0, 5).map((s, i) => {
-                            const avatarColors = ['#3b82f6', '#10b981', '#8b5cf6', '#f59e0b', '#ef4444'];
-                            return (
-                                <tr key={i}>
-                                    <td style={{ fontWeight: 600, color: 'var(--text2)', fontSize: 11 }}>{s.rollno}</td>
-                                    <td>
-                                        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                                            <div style={{
-                                                width: 26, height: 26, borderRadius: '50%',
-                                                background: avatarColors[i % 5],
-                                                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                                color: '#fff', fontSize: 10, fontWeight: 700, flexShrink: 0
-                                            }}>
-                                                {s.name.charAt(0).toUpperCase()}
+                <div className="table-wrap" style={{ margin: 0, border: 'none', borderRadius: 0, boxShadow: 'none' }}>
+                    <table className="dash-table" style={{ width: '100%', borderCollapse: 'collapse' }}>
+                        <thead>
+                            <tr>
+                                <th>Roll No</th>
+                                <th>Student Name</th>
+                                <th>Father Name</th>
+                                <th>Class</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {filteredRecent.slice(0, 5).map((s, i) => {
+                                const avatarColors = ['#3b82f6', '#10b981', '#8b5cf6', '#f59e0b', '#ef4444'];
+                                return (
+                                    <tr key={i}>
+                                        <td style={{ fontWeight: 600, color: 'var(--text2)', fontSize: 11 }}>{s.rollno}</td>
+                                        <td>
+                                            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                                                <div style={{
+                                                    width: 26, height: 26, borderRadius: '50%',
+                                                    background: avatarColors[i % 5],
+                                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                                    color: '#fff', fontSize: 10, fontWeight: 700, flexShrink: 0
+                                                }}>
+                                                    {s.name.charAt(0).toUpperCase()}
+                                                </div>
+                                                <span style={{ fontWeight: 600, color: 'var(--text)', fontSize: 12 }}>{s.name}</span>
                                             </div>
-                                            <span style={{ fontWeight: 600, color: 'var(--text)', fontSize: 12 }}>{s.name}</span>
-                                        </div>
-                                    </td>
-                                    <td style={{ fontSize: 11, color: 'var(--text2)' }}>{s.fatherName}</td>
-                                    <td style={{ fontSize: 11 }}>{s.cls}</td>
-                                    <td>
-                                        <span style={{
-                                            background: s.status === 'Approved' ? '#ecfdf5' : '#fffbeb', 
-                                            color: s.status === 'Approved' ? '#059669' : '#d97706',
-                                            padding: '2px 10px', borderRadius: 20, fontSize: 10, fontWeight: 700
-                                        }}>
-                                            {s.status}
-                                        </span>
-                                    </td>
-                                </tr>
-                            );
-                        })}
-                        {filteredRecent.length === 0 && (
-                            <tr><td colSpan={5} style={{ padding: 24, textAlign: 'center', color: 'var(--text2)', fontSize: 12 }}>No recent registrations found</td></tr>
-                        )}
-                    </tbody>
-                </table>
+                                        </td>
+                                        <td style={{ fontSize: 11, color: 'var(--text2)' }}>{s.fatherName}</td>
+                                        <td style={{ fontSize: 11 }}>{s.cls}</td>
+                                        <td>
+                                            <span style={{
+                                                background: s.status === 'Approved' ? '#ecfdf5' : '#fffbeb', 
+                                                color: s.status === 'Approved' ? '#059669' : '#d97706',
+                                                padding: '2px 10px', borderRadius: 20, fontSize: 10, fontWeight: 700
+                                            }}>
+                                                {s.status}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                );
+                            })}
+                            {filteredRecent.length === 0 && (
+                                <tr><td colSpan={5} style={{ padding: 24, textAlign: 'center', color: 'var(--text2)', fontSize: 12 }}>No recent registrations found</td></tr>
+                            )}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     );

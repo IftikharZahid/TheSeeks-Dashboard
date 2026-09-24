@@ -1243,3 +1243,28 @@ td {
 :root[data-theme="dark"] .hover-brightness:hover {
   background: var(--bg3) !important;
 }
+
+@media (max-width: 600px) {
+  /* Make dashboard cards more compact on mobile */
+  .dash-card { padding: 10px 12px !important; }
+  .dash-kpi-card { padding: 8px 10px !important; }
+  .dash-section-title { font-size: 13px !important; gap: 6px !important; }
+  .dash-section-title > div { width: 22px !important; height: 22px !important; }
+  
+  /* Make lists more compact */
+  .dash-card li, .dash-card .list-item { padding: 6px 8px !important; gap: 8px !important; }
+  .dash-card .list-item-avatar { width: 24px !important; height: 24px !important; font-size: 10px !important; }
+  
+  /* Adjust KPI Grid */
+  .dash-kpi-grid { gap: 8px !important; grid-template-columns: repeat(2, 1fr) !important; }
+  
+  /* Table row padding */
+  .dash-table th, .dash-table td { padding: 6px 8px !important; }
+  
+  /* Make dashboard hero compact and stacked on mobile */
+  .dash-hero { padding: 14px 16px !important; border-radius: 10px !important; }
+  .dash-hero > div { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
+  .dash-hero h2 { font-size: 15px !important; margin-bottom: 4px !important; }
+  .dash-hero p { font-size: 11px !important; }
+}
+
