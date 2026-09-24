@@ -368,8 +368,10 @@ export default function LoginPage() {
                             <div className="brand-text">THE SEEKS&nbsp;</div>
                             <div style={{ display: 'flex', flexDirection: 'column' }}>
                                 <div className="brand-text">ACADEMY</div>
-                                <div className="brand-location" style={{ textAlignLast: 'justify', letterSpacing: 0, width: '100%' }}>
-                                    FORT ABBAS
+                                <div className="brand-location" style={{ display: 'flex', justifyContent: 'space-between', width: '100%', letterSpacing: 0 }}>
+                                    {"FORT ABBAS".split("").map((char, index) => (
+                                        <span key={index}>{char === " " ? "\u00A0" : char}</span>
+                                    ))}
                                 </div>
                             </div>
                         </div>
