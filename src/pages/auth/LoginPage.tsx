@@ -56,8 +56,12 @@ export default function LoginPage() {
             <style>
                 {`
                     .login-container {
-                        min-height: 100vh;
-                        min-height: 100dvh;
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        z-index: 99999;
                         background: #2e3160;
                         display: flex;
                         flex-direction: column;
@@ -204,6 +208,8 @@ export default function LoginPage() {
                         .login-left { padding: 24px 16px 12px; }
                         .login-right { padding: 0 12px 16px; }
                         .login-form-card { padding: 24px 16px; }
+                        .main-heading { font-size: 20px; }
+                        .brand-text { font-size: 18px; }
                     }
                 `}
             </style>

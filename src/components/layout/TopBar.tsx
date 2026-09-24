@@ -347,14 +347,11 @@ export default function TopBar({
   });
 
   return (
-    <header
-      className="topbar"
-      style={{ padding: '0 30px', height: 70, background: 'var(--bg2)', borderBottom: '1px solid var(--border)' }}
-    >
+    <header className="topbar topbar-custom">
       <button className="mobile-toggle-btn" onClick={toggleMobile}>☰</button>
 
       {/* Search */}
-      <div style={{ flex: 1, display: 'flex', alignItems: 'center', position: 'relative' }}>
+      <div className="search-wrapper">
         <div style={{
           display: 'flex', alignItems: 'center', background: 'var(--bg3)',
           border: '1px solid var(--border)',
@@ -446,10 +443,36 @@ export default function TopBar({
 
       <style>
         {`
-          /* Custom TopBar styling if needed */
+          .topbar-custom {
+             padding: 0 30px;
+             height: 70px;
+             background: var(--bg2);
+             border-bottom: 1px solid var(--border);
+          }
+          .search-wrapper { flex: 1; display: flex; align-items: center; position: relative; }
+          .topbar-spacer-custom { flex: 1; display: flex; justify-content: center; align-items: center; }
+          .topbar-actions-custom { display: flex; align-items: center; gap: 16px; padding-left: 16px; }
+          .clock-container { display: flex; }
+          .about-btn { display: flex; align-items: center; justify-content: center; }
+          
+          @media (max-width: 1024px) {
+             .topbar-custom { padding: 0 20px; }
+             .topbar-spacer-custom img { height: 36px !important; }
+          }
+          @media (max-width: 768px) {
+             .topbar-custom { padding: 0 12px !important; height: 60px !important; gap: 8px !important; }
+             .topbar-spacer-custom { display: none !important; }
+             .clock-container { display: none !important; }
+             .about-btn { display: none !important; }
+             .topbar-actions-custom { gap: 8px !important; padding-left: 0 !important; }
+          }
+          @media (max-width: 480px) {
+             .topbar-custom { padding: 0 8px !important; gap: 4px !important; }
+             .topbar-actions-custom { gap: 4px !important; }
+          }
         `}
       </style>
-      <div className="topbar-spacer" style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <div className="topbar-spacer-custom">
         <img 
           src="./topbar-banner.png" 
           alt="Alhamdulillah Banner" 
@@ -462,8 +485,8 @@ export default function TopBar({
         />
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: 16, paddingLeft: 16 }}>
-        <DigitalClock />
+      <div className="topbar-actions-custom">
+        <div className="clock-container"><DigitalClock /></div>
 
         {/* Dark Mode Toggle */}
         <button
@@ -477,7 +500,7 @@ export default function TopBar({
 
         {/* About */}
         <button
-          className="hover-brightness"
+          className="hover-brightness about-btn"
           onClick={() => window.dispatchEvent(new CustomEvent('open-about'))}
           title="About Dashboard"
           style={iconBtn()}
