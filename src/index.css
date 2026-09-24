@@ -1266,5 +1266,19 @@ td {
   .dash-hero > div { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
   .dash-hero h2 { font-size: 15px !important; margin-bottom: 4px !important; }
   .dash-hero p { font-size: 11px !important; }
+  
+  /* Settings Page Compact Styling */
+  .settings-header { padding: 12px 16px !important; }
+  .settings-scroll-container { padding: 16px !important; }
+  .settings-grid { gap: 16px !important; }
+  
+  .settings-card { border-radius: 10px !important; overflow-x: auto !important; }
+  .settings-card .form-input { height: 40px !important; font-size: 13px !important; padding: 6px 10px !important; }
+  .settings-card .btn { padding: 6px 12px !important; font-size: 12px !important; }
 }
+
+/* Base Settings Page Styles */
+.settings-header { padding: 16px 32px; }
+.settings-scroll-container { flex: 1; overflow-y: scroll; padding: 24px 32px; }
+.settings-grid { gap: 24px; }
 

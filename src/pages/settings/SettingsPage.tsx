@@ -421,11 +421,12 @@ function Card({
 }) {
   return (
     <div
+      className="settings-card"
       style={{
         background: "var(--card)",
         border: "1px solid var(--border)",
         borderRadius: 12,
-        overflow: "hidden",
+        overflowX: "auto",
         boxShadow: "0 4px 12px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.03)",
         ...style,
       }}
@@ -1964,9 +1965,8 @@ WhatsApp:   https://wa.link/330h0s
     >
       {/* Header */}
       <div
-        className="page-header"
+        className="page-header settings-header"
         style={{
-          padding: "16px 32px",
           borderBottom: "1px solid var(--border)",
           display: "flex",
           justifyContent: "space-between",
@@ -2018,10 +2018,10 @@ WhatsApp:   https://wa.link/330h0s
         )}
       </div>
 
-      <div style={{ flex: 1, overflowY: "scroll", padding: "24px 32px" }}>
+      <div className="settings-scroll-container">
         <div
-          className="responsive-grid-2"
-          style={{ gap: 24, maxWidth: 1400, margin: "0 auto" }}
+          className="responsive-grid-2 settings-grid"
+          style={{ maxWidth: 1400, margin: "0 auto" }}
         >
           {/* ── LEFT COLUMN ─────────────────────────────────────── */}
           <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
