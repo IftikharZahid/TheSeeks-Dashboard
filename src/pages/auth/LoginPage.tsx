@@ -355,14 +355,14 @@ export default function LoginPage() {
                     {/* Logo Top Left */}
                     <div className="brand-container">
                         <img src="/logo.png" alt="Logo" className="brand-logo" />
-                        <div className="brand-text">THE SEEKS<br/>ACADEMY</div>
+                        <div className="brand-text">THE SEEKS ACADEMY</div>
                     </div>
 
                     {/* Center Typography */}
                     <div className="center-typo">
                         <div className="sub-heading">A Comprehensive</div>
                         <div className="main-heading">
-                            Education Management<br/>Solution
+                            Education Management Solution
                         </div>
                         <div style={{ width: 112, height: 4, background: '#ef4444', marginTop: 20, borderRadius: 2 }} />
                     </div>
