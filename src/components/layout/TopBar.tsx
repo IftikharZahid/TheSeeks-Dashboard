@@ -469,7 +469,31 @@ export default function TopBar({
           @media (max-width: 480px) {
              .topbar-custom { padding: 0 8px !important; gap: 4px !important; }
              .topbar-actions-custom { gap: 4px !important; }
+             
+             .dp-item { padding: 6px 10px !important; gap: 6px !important; }
+             .dp-icon { width: 22px !important; height: 22px !important; border-radius: 6px !important; font-size: 11px !important; }
+             .dp-title { font-size: 11px !important; }
+             .dp-text { font-size: 10px !important; }
+             .dp-subtext { font-size: 9px !important; }
+             .dp-badge { font-size: 8px !important; padding: 1px 4px !important; margin-top: 2px !important; }
           }
+          
+          .dp-item {
+             display: flex; align-items: center; gap: 8px;
+             padding: 10px 14px; border-bottom: 1px solid var(--border);
+             cursor: pointer; transition: background 0.2s;
+          }
+          .dp-item:hover { background: var(--bg3); }
+          .dp-icon {
+             width: 26px; height: 26px; border-radius: 6px; flex-shrink: 0;
+             display: flex; align-items: center; justify-content: center;
+             font-size: 12px; font-weight: 700; color: #fff;
+          }
+          .dp-title { font-size: 13px; font-weight: 700; color: var(--text); }
+          .dp-text { font-size: 11px; color: var(--text2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+          .dp-subtext { font-size: 10px; color: var(--text2); }
+          .dp-badge { font-size: 9px; padding: 1px 6px; border-radius: 10px; font-weight: 700; display: inline-block; }
+          
         `}
       </style>
       <div className="topbar-spacer-custom">
@@ -550,25 +574,17 @@ export default function TopBar({
                     return `${Math.floor(s/3600)}h ago`;
                   })() : '';
                   return (
-                    <div key={i} onClick={() => { setMsgOpen(false); navigate(`/chat?group=${msg.groupId}`); }} style={{
-                      display: 'flex', alignItems: 'center', gap: 8,
-                      padding: '8px 12px', borderBottom: '1px solid var(--border)',
-                      cursor: 'pointer'
-                    }}>
-                      <div style={{
-                        width: 26, height: 26, borderRadius: 6, background: avatarBg,
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        color: '#fff', fontSize: 11, fontWeight: 700, flexShrink: 0,
-                      }}>
+                    <div key={i} onClick={() => { setMsgOpen(false); navigate(`/chat?group=${msg.groupId}`); }} className="dp-item">
+                      <div className="dp-icon" style={{ background: avatarBg }}>
                         {(msg.sender || 'U').charAt(0).toUpperCase()}
                       </div>
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 2 }}>
-                          <span style={{ fontSize: 13, fontWeight: 700, color: 'var(--text)' }}>{msg.sender}</span>
-                          <span style={{ fontSize: 10, color: 'var(--text2)' }}>{elapsed}</span>
+                          <span className="dp-title">{msg.sender}</span>
+                          <span className="dp-subtext">{elapsed}</span>
                         </div>
-                        <div style={{ fontSize: 11, color: 'var(--text2)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{msg.text}</div>
-                        <div style={{ fontSize: 9, color: avatarBg, background: `${avatarBg}18`, padding: '1px 6px', borderRadius: 10, fontWeight: 700, display: 'inline-block', marginTop: 4 }}>{msg.group}</div>
+                        <div className="dp-text">{msg.text}</div>
+                        <div className="dp-badge" style={{ color: avatarBg, background: `${avatarBg}18`, marginTop: 4 }}>{msg.group}</div>
                       </div>
                     </div>
                   );
@@ -612,27 +628,15 @@ export default function TopBar({
                   const navPath = n._type === 'complaint' ? '/complaints' : n._type === 'suggestion' ? '/suggestions' : `/notifications/${n.id}`;
                   const icon = n._type === 'complaint' ? '🚨' : n._type === 'suggestion' ? '💡' : (n.category === 'Exam' ? '📄' : n.category === 'Holiday' ? '📅' : n.category === 'Event' ? '⭐' : n.category === 'Fee' ? '💳' : n.category === 'Academic' ? '🏫' : '🔔');
                   return (
-                    <div key={n.id || i} onClick={() => { setBellOpen(false); navigate(navPath); }} style={{
-                      display: 'flex', gap: 8, padding: '8px 12px',
-                      borderBottom: '1px solid var(--border)', alignItems: 'center',
-                      cursor: 'pointer',
-                      transition: 'background 0.2s',
-                    }}
-                    onMouseEnter={e => e.currentTarget.style.background = 'var(--bg3)'}
-                    onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
-                    >
-                      <div style={{
-                        width: 26, height: 26, borderRadius: 6,
-                        background: `${color}20`, display: 'flex',
-                        alignItems: 'center', justifyContent: 'center', fontSize: 12, flexShrink: 0,
-                      }}>
+                    <div key={n.id || i} onClick={() => { setBellOpen(false); navigate(navPath); }} className="dp-item">
+                      <div className="dp-icon" style={{ background: `${color}20`, color: 'inherit' }}>
                         {icon}
                       </div>
                       <div style={{ flex: 1, minWidth: 0 }}>
-                        <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{n.title}</div>
+                        <div className="dp-title" style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{n.title}</div>
                         <div style={{ display: 'flex', gap: 6, marginTop: 4, alignItems: 'center' }}>
-                          <span style={{ fontSize: 9, color, background: `${color}18`, padding: '1px 6px', borderRadius: 10, fontWeight: 700 }}>{n.category}</span>
-                          <span style={{ fontSize: 10, color: 'var(--text2)' }}>{fmtTs(n.createdAt)}</span>
+                          <span className="dp-badge" style={{ color, background: `${color}18` }}>{n.category}</span>
+                          <span className="dp-subtext">{fmtTs(n.createdAt)}</span>
                         </div>
                       </div>
                     </div>

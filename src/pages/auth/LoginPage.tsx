@@ -141,6 +141,14 @@ export default function LoginPage() {
                         line-height: 1.1;
                         letter-spacing: -0.5px;
                     }
+                    .brand-location {
+                        font-size: 11px;
+                        font-weight: 700;
+                        color: #475569;
+                        letter-spacing: 3px;
+                        text-transform: uppercase;
+                        margin-top: 2px;
+                    }
                     .main-heading {
                         color: #2e3160;
                         font-size: 28px;
@@ -313,6 +321,7 @@ export default function LoginPage() {
                         
                         /* Typography & Branding Scale Down */
                         .brand-text { font-size: 17px; white-space: nowrap; }
+                        .brand-location { font-size: 8px; letter-spacing: 2px; }
                         .brand-logo { width: 48px; height: 48px; }
                         .main-heading { font-size: 13px; margin-top: 4px; font-weight: 600; line-height: 1.2; white-space: nowrap; }
                         .sub-heading { font-size: 9px; letter-spacing: 1px; }
@@ -355,7 +364,10 @@ export default function LoginPage() {
                     {/* Logo Top Left */}
                     <div className="brand-container">
                         <img src="/logo.png" alt="Logo" className="brand-logo" />
-                        <div className="brand-text">THE SEEKS ACADEMY</div>
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+                            <div className="brand-text">THE SEEKS ACADEMY</div>
+                            <div className="brand-location">Fort Abbas</div>
+                        </div>
                     </div>
 
                     {/* Center Typography */}
